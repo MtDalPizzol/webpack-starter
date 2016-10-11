@@ -1,0 +1,32 @@
+{
+  "name": "webpack-starter",
+  "version": "1.0.0",
+  "description": "A Webpack boilerplate with ES6 and SCSS for simple web projects",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MtDalPizzol/webpack-starter.git"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "NODE_ENV=production webpack"
+  },
+  "author": "Matheus Dal'Pizzol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MtDalPizzol/webpack-starter/issues"
+  },
+  "homepage": "https://github.com/MtDalPizzol/webpack-starter",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.16.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.10.1",
+    "sass-loader": "^4.0.2",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "dependencies": {}
+}
