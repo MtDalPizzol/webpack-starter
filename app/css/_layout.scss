@@ -1,0 +1,34 @@
+.adjust-sidenav {
+  min-height: 100%;
+  padding-left: 300px;
+}
+
+nav .nav-wrapper {
+  padding: 0 32px;
+}
+
+main {
+  padding: 64px;
+}
+
+.intro {
+  margin-bottom: 64px;
+
+  .header {
+    margin-top: 32px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .adjust-sidenav {
+    padding-left: 0;
+  }
+
+  .visible-on-mobile {
+    transform: translate(0) !important;
+  }
+}
+
+.side-nav .userView {
+  background: url("../img/user-view-bg.png");
+}

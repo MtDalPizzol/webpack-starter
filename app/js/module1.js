@@ -1,1 +1,11 @@
-console.log('If you\'re reading this, your module loader is working. =)');
+import $ from 'jquery';
+
+$(document).ready(function(){
+
+  $('#app-modules-status')
+    .text('App modules were successfuly loaded from from ./app/js')
+    .closest('.card')
+    .removeClass('red')
+    .addClass('green');
+
+});

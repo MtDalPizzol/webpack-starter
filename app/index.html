@@ -1,17 +1,101 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
 
-    <link rel="stylesheet" href="http://localhost:8080/css/bundle.css" media="screen">
+<head>
+  <meta charset="utf-8">
+  <title>Webpack Starter</title>
 
-  </head>
+  <link rel="stylesheet" href="<%= publicPath %>css/bundle.css" media="screen">
+
+</head>
+
+<body>
+
   <body>
 
-    <h1>Welcome to Wabpack Starter!</h1>
+    <div class="adjust-sidenav">
 
-    <script type="text/javascript" src="http://localhost:8080/js/bundle.js"></script>
+      <!-- Begin Top Nav -->
+      <div class="navbar-fixed">
+        <nav class="white">
+          <div class="nav-wrapper">
+            <a href="#!" class="brand-logo right">Webpack Starter</a>
+            <ul>
+              <li><a href="#" data-activates="slide-out" class="button-collapse grey-text"><i class="mdi mdi-24px mdi-menu"></i></a></li>
+              <li><a href="https://github.com/MtDalPizzol/webpack-starter" class="grey-text" target="_blank">Documentation</a></li>
+              <li><a href="https://github.com/MtDalPizzol/webpack-starter/issues" class="grey-text" target="_blank">Report a bug</a></li>
+              <li><a href="https://github.com/MtDalPizzol/webpack-starter" class="grey-text" target="_blank">Contribute</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!-- End Top Nav -->
+
+      <!-- Begin Main Content -->
+      <main>
+
+        <div class="intro">
+          <div class="row">
+            <div class="col s12 l3">
+              <div class="center">
+                <img src="/public/img/webpack-logo.png" alt="Webpack Module Bundler" />
+              </div>
+            </div>
+            <div class="col s12 l9">
+              <h3 class="header">Welcome to Webpack Starter</h3>
+              <p>
+                This is a Webpack boilerplate to write web projects using ES6 and SCSS.<br><br>
+                The goal is to provide a Webpack configuration that can be used in any good old "php/jQuery" project, if you know what I mean. Some people end up not taking the time to learn Webpack because they go to search engines and find a bunch of articles talking about how to use Webpack with React, Angular2 and other complex stuff, ending up thinking that Webpack is made to work only with these kinds of tools. This project shows how you can take advantage of Webpack in that old legacy project that only needs a new theme, and, of course, in your next project.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <div class="card red white-text">
+              <div class="card-content">
+                <span class="card-title">NPM modules status</span>
+                <p id="npm-modules-status">Couldn't load modules from ./node_modules</p>
+              </div>
+            </div>
+            <div class="card red white-text">
+              <div class="card-content">
+                <span class="card-title">APP modules status</span>
+                <p id="app-modules-status">Couldn't load modules from ./app/js</p>
+              </div>
+            </div>
+            <div class="card red white-text">
+              <div class="card-content">
+                <span class="card-title">RAW Loader status</span>
+                <p id="raw-loader-status">Couldn't load modules from ./app/js</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+      <!-- End Main Content -->
+
+    </div>
+
+    <!-- Begin Sidenav-->
+    <ul id="slide-out" class="side-nav fixed">
+      <li>
+        <div class="userView">
+          <!-- <img class="background" src="img/user-view-bg.png"> -->
+          <a href="https://br.linkedin.com/in/matheusdalpizzol/en" target="_blank"><img class="circle" src="/public/img/user-profile-pic.png"></a>
+          <a href="https://br.linkedin.com/in/matheusdalpizzol/en" target="_blank"><span class="name white-text">Matheus Dal'Pizzol</span></a>
+          <a href="mailto:matheusdalpizzol@gmail.com"><span class="email white-text">matheusdalpizzol@gmail.com</span></a>
+        </div>
+      </li>
+      <li><a class="waves-effect" href="https://github.com/MtDalPizzol" target="_blank"><i class="mdi mdi-24px mdi-github-circle"></i>Github</a></li>
+      <li><a class="waves-effect" href="https://br.linkedin.com/in/matheusdalpizzol/en" target="_blank"><i class="mdi mdi-24px mdi-linkedin-box"></i>Linkedin</a></li>
+    </ul>
+    <!-- End Sidenav-->
+
+    <script type="text/javascript" src="<%= publicPath %>js/bundle.js"></script>
 
   </body>
+
 </html>

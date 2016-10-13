@@ -8,8 +8,12 @@
     "url": "https://github.com/MtDalPizzol/webpack-starter.git"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "NODE_ENV=production webpack"
+    "start": "parallelshell 'npm run dev:server' 'npm run dev'",
+    "dev:server": "webpack-dev-server",
+    "dev": "node server.js",
+    "deploy": "NODE_ENV=production node server.js",
+    "build:clear": "rimraf dist",
+    "build": "npm run build:clear && NODE_ENV=production webpack"
   },
   "author": "Matheus Dal'Pizzol",
   "license": "MIT",
@@ -18,16 +22,30 @@
   },
   "homepage": "https://github.com/MtDalPizzol/webpack-starter",
   "devDependencies": {
+    "autoprefixer": "^6.5.0",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.16.0",
     "css-loader": "^0.25.0",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
     "node-sass": "^3.10.1",
+    "parallelshell": "^2.0.0",
+    "postcss-loader": "^0.13.0",
+    "raw-loader": "^0.5.1",
+    "resolve-url-loader": "^1.6.0",
+    "rimraf": "^2.5.4",
     "sass-loader": "^4.0.2",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "materialize-css": "^0.97.7",
+    "mdi": "^1.7.22"
+  }
 }

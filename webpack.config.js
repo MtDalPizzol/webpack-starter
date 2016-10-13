@@ -3,9 +3,10 @@ const HMR = false;
 
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = function(){
+module.exports = function() {
 
   var config = {};
 
@@ -19,31 +20,98 @@ module.exports = function(){
   };
 
   config.output = {
-    path: './dist/',
+    path: path.join(__dirname, 'dist'),
     filename: '[name]',
-    publicPath: DEV ? 'http://localhost:8080/' : path.join(__dirname, 'dist')
+    publicPath: DEV ? 'http://localhost:8080/' : '/dist/'
   };
 
   config.module = {
 
     loaders: [
+
       {
         test: /\.js$/,
         loader: 'babel',
         exclude: /node_modules/
       },
+
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css!sass'),
+        loader: ExtractTextPlugin.extract('css!postcss!resolve-url!sass?sourceMap'),
         exclude: /node_modules/
+      },
+
+      {
+        test: /\.css$/,
+        loader: 'css!postcss!resolve-url',
+        exclude: /node_modules/
+      },
+
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        loader: 'file',
+        query: {
+          name: 'img/[name].[ext]'
+        }
+      },
+
+      {
+        test: /\.woff(2)?(\?v=[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2})?$/,
+        loader: "url",
+        query: {
+          limit: 10000,
+          mimetype: 'application/font-woff',
+          name: 'fonts/[name].[ext]'
+        }
+      },
+
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2})?$/,
+        loader: "file",
+        query: {
+          name: 'fonts/[name].[ext]'
+        }
+      },
+
+      {
+        test: /\.html$/,
+        loader: 'raw'
       }
+
     ]
 
   };
 
+  config.postcss = function() {
+    return [
+      autoprefixer({
+        browsers: ['last 2 version']
+      })
+    ];
+  };
+
   config.plugins = [
-    new ExtractTextPlugin('css/bundle.css')
+    new ExtractTextPlugin('css/bundle.css'),
+    new webpack.NoErrorsPlugin()
   ];
+
+  if (!DEV) {
+
+    config.plugins.push(
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+        mangle: false,
+        sourcemap: false,
+        compress: {
+          warnings: false
+        },
+        output: {
+          comments: false
+        }
+      })
+    );
+
+  }
 
   if (DEV) {
 
@@ -52,11 +120,10 @@ module.exports = function(){
       inline: true
     };
 
-
     /**
      * Enable the HMR constant if you want to try HMR.
      * It enables the Webpack client to open a socket with the browser
-     * and a performs HMR on it.
+     * and perform HMR on it.
      * I couldn't get this working properly due to the following error:
      *
      * [HMR] Cannot apply update.
