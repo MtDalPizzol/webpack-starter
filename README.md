@@ -88,9 +88,9 @@ This will start the `webpack-dev-server` at [http://localhost:8080](http://local
 npm start
 ```
 
-## A note on Materilize
+## A note on Materialize
 
-If you're planning to use Materilize, you need to know that some of its dependencies aren't designed in a way that work with Webpack. To get this working, you'll need to hack your jQuery incorporation as follows:
+If you're planning to use [Materialize](http://materializecss.com/), you need to know that some of its dependencies aren't designed to work with Webpack. To get this working, you'll need to hack your jQuery incorporation as follows:
 
 **Add jQuery directly into your page:**
 

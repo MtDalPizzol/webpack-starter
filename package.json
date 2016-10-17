@@ -2,7 +2,7 @@
   "name": "webpack-starter",
   "version": "1.0.0",
   "description": "A Webpack boilerplate with ES6 and SCSS for simple web projects",
-  "main": "index.js",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/MtDalPizzol/webpack-starter.git"
