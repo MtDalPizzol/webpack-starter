@@ -88,9 +88,20 @@ This will start the `webpack-dev-server` at [http://localhost:8080](http://local
 npm start
 ```
 
+## A note on jQuery
+
+If you want to have jQuery globally available, change your `webpack.config.js` and add the `webpack.ProvidePlugin` to `config.plugins`.
+
+```
+new webpack.ProvidePlugin({
+  '$': 'jquery',
+  'jQuery': 'jquery'
+}),
+```
+
 ## A note on Materialize
 
-If you're planning to use [Materialize](http://materializecss.com/), you need to know that some of its dependencies aren't designed to work with Webpack. To get this working, you'll need to hack your jQuery incorporation as follows:
+If you're planning to use [Materialize](http://materializecss.com/), you need to know that some of its dependencies aren't designed to work with Webpack. To get this working, you'll need to hack your jQuery incorporation in one of the following ways:
 
 **Add jQuery directly into your page:**
 

@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 $(document).ready(function(){
 
   $('#app-modules-status')

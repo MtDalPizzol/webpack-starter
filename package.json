@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "parallelshell 'npm run dev:server' 'npm run dev'",
-    "dev:server": "webpack-dev-server",
+    "dev:server": "webpack-dev-server --progress",
     "dev": "node server.js",
     "deploy": "NODE_ENV=production node server.js",
     "build:clear": "rimraf dist",

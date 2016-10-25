@@ -91,6 +91,10 @@ module.exports = function() {
   };
 
   config.plugins = [
+    new webpack.ProvidePlugin({
+      '$': 'materialize-css/node_modules/jquery/dist/jquery.js',
+      'jQuery': 'materialize-css/node_modules/jquery/dist/jquery.js'
+    }),
     new ExtractTextPlugin('css/bundle.css'),
     new webpack.NoErrorsPlugin()
   ];
